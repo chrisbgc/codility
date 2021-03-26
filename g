@@ -1,4 +1,0 @@
-da
-ad
-dasd
-X
