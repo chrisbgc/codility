@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+
+int solution(std::vector<int> &A){
+
+    int zeros = 0;
+    long long ret = 0;
+
+    for (auto& a : A){
+        if (a == 0)
+            zeros++;
+        if (a == 1)
+            ret+=zeros;
+        }
+
+    if (ret>1000000000)
+        return -1;
+    
+    return ret;
+}
+
+int main()
+{
+
+   std::vector<int> vec = {0,1,0,1,1};
+   std::cout << solution (vec);
+
+   return 0;
+}
