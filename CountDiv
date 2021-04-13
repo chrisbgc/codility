@@ -1,0 +1,12 @@
+#include <iostream>
+
+int solution(int A, int B, int K){
+    return B/K - A/K + !(A%K);
+}
+
+int main()
+{
+   std::cout << solution (6, 11, 2);
+
+   return 0;
+}
