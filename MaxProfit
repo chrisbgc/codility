@@ -1,0 +1,16 @@
+
+int solution(vector<int> &A) {
+   
+    if (A.size() < 2) {
+        return 0;
+    }
+    
+    int minV = A[0], result = 0;
+    for (size_t i = 1; i < A.size(); i++) {
+        minV = min(minV, A[i]);
+        result = max(result, A[i] - minV);
+    }
+    
+    return result;
+}
+
