@@ -1,0 +1,16 @@
+int solution(string &S) {
+    
+    std::stack<char> l;
+    for (char& a : S){
+        if(a == '{' || a == '[' || a == '(')
+        l.push(a);
+
+        if(a == '}' || a == ']' || a == ')'){
+            if(l.empty() || abs((int)l.top()-(int)a) >2){
+                return 0;
+            }
+        l.pop();
+        }
+    }
+    return l.empty() ? 1 : 0;
+}
