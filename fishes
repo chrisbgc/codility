@@ -1,0 +1,30 @@
+ #include <stack>
+
+// you can write to stdout for debugging purposes, e.g.
+// cout << "this is a debug message" << endl;
+
+int solution(vector<int> &A, vector<int> &B) {
+
+int result = 0;
+std::stack<int> fishes;
+
+for (size_t i = 0; i<A.size(); i++)
+{
+    if (B[i]==1)
+    {
+        fishes.push(A[i]);
+    }
+    if (B[i]==0)
+    {
+        while(!(fishes.empty())){
+            if( A[i] > fishes.top())
+            {
+                fishes.pop();
+            } 
+            else break;
+        }
+        if(fishes.size()==0) result++;
+    }
+}
+return result + fishes.size();
+}
