@@ -1,0 +1,30 @@
+// you can use includes, for example:
+ #include <map>
+
+// you can write to stdout for debugging purposes, e.g.
+// cout << "this is a debug message" << endl;
+
+int solution(vector<int> &A) {
+    int result = 0, max = 0;
+    std::map<int, int> map;
+    int size = A.size();
+    if (size == 0){
+        return -1;
+    }
+
+    for (int i = 0; i < size; i++) {
+        if (map.find(A[i]) == map.end()) {
+            map[A[i]] = 1;
+        } else {
+            map[A[i]]++;
+        }
+        
+        if (map[A[i]] > max) {
+            max = map[A[i]];
+            result = i;
+        }
+    }
+    
+    
+    return map[A[result]] > size / 2 ? result : -1;
+}
