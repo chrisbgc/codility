@@ -1,0 +1,17 @@
+int solution(string &S) {
+ std::stack<char> l;
+    for (char& a : S){
+        if(a == '(')
+        l.push(a);
+
+        if(a == ')'){
+            if(l.empty() || (!(l.top() == '('))){
+                return 0;
+            }
+            if(l.top() == '('){
+                l.pop(); 
+            }
+        }
+    }
+    return l.empty() ? 1 : 0;
+}
